@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { GradeSelector } from "./grade-selector";
 import { CategorySelector } from "./category-selector";
-import { ThemeResultCard } from "./theme-result";
+import { GradeSelector } from "./grade-selector";
 import { LoadingIndicator } from "./loading-indicator";
+import { ThemeResultCard } from "./theme-result";
 import { useThemeGeneration } from "@/hooks/use-theme-generation";
 import { FREE_TEXT_MAX_LENGTH } from "@/lib/constants";
 import type { GradeLevel, CategoryValue } from "@/lib/types";

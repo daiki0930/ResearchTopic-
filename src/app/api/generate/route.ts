@@ -1,8 +1,8 @@
+import { anthropic } from "@ai-sdk/anthropic";
 import { streamText } from "ai";
-import { google } from "@ai-sdk/google";
 import { auth } from "@/lib/auth";
-import { buildSystemPrompt, buildUserPrompt } from "@/lib/prompts";
 import { GRADES, CATEGORIES, FREE_TEXT_MAX_LENGTH } from "@/lib/constants";
+import { buildSystemPrompt, buildUserPrompt } from "@/lib/prompts";
 import type { GenerateRequest } from "@/lib/types";
 
 export const maxDuration = 30;
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
   const sanitizedFreeText = (freeText ?? "").slice(0, FREE_TEXT_MAX_LENGTH);
 
   const result = streamText({
-    model: google("gemini-2.0-flash"),
+    model: anthropic("claude-3-5-haiku-20241022"),
     system: buildSystemPrompt(),
     prompt: buildUserPrompt(grade, category, sanitizedFreeText),
     temperature: 0.8,
